@@ -26,7 +26,7 @@ onMounted(() => {
 const token = ref('')
 
 const getMessages = (data) => {
-  axios.get('http://127.0.0.1:9500/api/im/message/list?conversation_id=1', {
+  axios.get('http://127.0.0.1:9500/api/im/message/list?conversation_id=1&open_source_id=1&open_source_type=1', {
     headers: {
       'Authorization': `Bearer ${data.token}`
     }
@@ -53,7 +53,7 @@ const ws = (data) => {
   socket.onmessage = function (event) {
     console.log('收到服务器消息：', event.data);
     const decodeData = JSON.parse(event.data);
-    if (decodeData.type !== 'heartbeat') {
+    if (decodeData.type === 'new_message') {
       messages.value.push(JSON.parse(event.data))
     }
   };

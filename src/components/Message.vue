@@ -11,11 +11,11 @@ import {computed, ref, watch} from "vue";
 
 <template>
   <li v-for="item in massages">
-    <span v-if="item.content.type === 'text'">
+    <span v-if="item.type===1">
       {{item.from_user_id_label}} >>>>>>> {{item.content.text}} >>>>>>>>>               {{item.created_at}}
     </span>
     <span v-else>
-        {{item.content}}
+        {{item}}
     </span>
 
   </li>
