@@ -5,7 +5,14 @@ import Message from "./Message.vue";
 import Send from "./Send.vue";
 
 const getToken = () => {
-  axios.post('http://127.0.0.1:9500/api/user/customer_auth?customer_id=3').then((response) => {
+  axios.post('http://127.0.0.1:9500/api/user/customer_auth?customer_id=3', {
+    source_type:1,
+    source_id:1
+  },{
+    headers: {
+      'Authorization': 'Bearer 123',
+      'Content-Type': 'application/json'
+    }}).then((response) => {
     token.value = response.data.data.token
     ws(response.data.data)
     getMessages(response.data.data)

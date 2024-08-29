@@ -5,7 +5,10 @@ import Message from "./Message.vue";
 import Send from "./Send.vue";
 
 const getToken = () => {
-  axios.post('http://127.0.0.1:9500/api/user/auth?id=2').then((response) => {
+  axios.post('http://127.0.0.1:9500/api/user/random_helper_auth', {},{
+    headers: {
+      'Authorization': `Bearer 123`
+    }}).then((response) => {
     token.value = response.data.data.token
     ws(response.data.data)
     getMessages(response.data.data)
