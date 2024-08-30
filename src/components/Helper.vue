@@ -5,7 +5,7 @@ import Message from "./Message.vue";
 import Send from "./Send.vue";
 
 const getToken = () => {
-  axios.post('http://127.0.0.1:9500/api/user/random_helper_auth', {},{
+  axios.post('http://10.10.40.205:9500/api/user/random_helper_auth', {},{
     headers: {
       'Authorization': `Bearer 123`
     }}).then((response) => {
@@ -23,7 +23,7 @@ onMounted(() => {
 const token = ref('')
 
 const getMessages = (data) => {
-  axios.get('http://127.0.0.1:9500/api/im/message/list?conversation_id=1&open_source_id=0&open_source_type=3', {
+  axios.get('http://10.10.40.205:9500/api/im/message/list?conversation_id=1&open_source_id=0&open_source_type=3&per_page=5', {
     headers: {
       'Authorization': `Bearer ${data.token}`
     }
@@ -34,7 +34,7 @@ const getMessages = (data) => {
 
 const ws = (data) => {
   // 创建 WebSocket 连接
-  const socket = new WebSocket('ws://127.0.0.1:9583/?token=' + data.token);
+  const socket = new WebSocket('ws://10.10.40.205:9583/?token=' + data.token);
 
 // 连接成功事件
   socket.onopen = function (event) {
