@@ -16,7 +16,7 @@ function handleSubmit(event) {
 
   event.preventDefault(); // 阻止表单默认提交行为
 
-  axios.post('http://10.10.40.205:9500/api/im/message/send_text_message', { content: text.value, conversation_id: 1 }, {
+  axios.post('http://127.0.0.1:9500/api/im/message/send_text_message', { content: text.value, conversation_id: 1 }, {
     headers: {
       'Authorization': `Bearer ${props.token}`
     }

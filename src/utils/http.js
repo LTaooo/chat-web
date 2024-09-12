@@ -8,7 +8,7 @@ function getToken() {
 
 // 创建 axios 实例
 const http = axios.create({
-    baseURL: 'http://10.10.40.205:9500', // 替换为你的 API 基础 URL
+    baseURL: 'http://127.0.0.1:9500', // 替换为你的 API 基础 URL
     headers: {
         'Content-Type': 'application/json'
     }
@@ -16,7 +16,7 @@ const http = axios.create({
 
 async function fetchToken() {
     try {
-        const response = await axios.post('http://10.10.40.205:9500/api/user/auth?user_id=1');
+        const response = await axios.post('http://127.0.0.1:9500/api/user/auth?user_id=1');
         const token = response.data.token;
         localStorage.setItem('token', token); // 缓存 token 到本地
         return token;

@@ -1,6 +1,7 @@
 import {createWebHistory, createRouter} from 'vue-router';
 import Helper from "../components/Helper.vue";
 import Client from "../components/Client.vue";
+import Payment from "../components/PayPal.vue";
 
 
 const routes = [
@@ -13,6 +14,11 @@ const routes = [
         path: '/helper',
         name: 'helper',
         component: Helper,
+    },
+    {
+        path: '/paypal',
+        name: 'paypal',
+        component: Payment,
     },
 ];
 

@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@paypal/paypal-js": "^8.1.1",
+    "@paypal/paypal-js-root": "github:paypal/paypal-js",
     "axios": "^1.7.5",
     "vue": "^3.4.37",
     "vue-router": "^4.4.3"
